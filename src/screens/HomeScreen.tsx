@@ -1,12 +1,15 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { ActivityIndicator, Text, View } from 'react-native'
+import { Spinner } from '../components/Spinner';
 import { useMovies } from '../hooks/useMovies'
+import { styles } from '../styles/Home';
 
 export const HomeScreen = () => {
 
-  const { cineMovies } = useMovies();
+  const { cineMovies, isLoading } = useMovies();
 
-  console.log(cineMovies[3]?.title);
+  if (isLoading) return <Spinner></Spinner>;
+
   return (
     <View>
       <Text>HomeScreen</Text>

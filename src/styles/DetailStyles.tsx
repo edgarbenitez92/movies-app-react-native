@@ -41,6 +41,13 @@ export const detailStyles = StyleSheet.create({
   },
   returnButton: {
     position: 'absolute',
+    borderColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 45,
+    width: 45,
+    borderRadius: 10,
+    borderWidth: 2,
     top: 30,
     left: 20
   }

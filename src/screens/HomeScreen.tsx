@@ -12,6 +12,7 @@ import { useMovies } from '../hooks/useMovies'
 
 import { homeStyles } from '../styles/HomeStyles';
 import { MainCarousel } from '../components/MainCarousel';
+import { GrandientBackground } from '../components/GrandientBackground';
 
 export const HomeScreen = () => {
 
@@ -21,24 +22,26 @@ export const HomeScreen = () => {
   if (isLoading) return <Spinner></Spinner>;
 
   return (
-    <ScrollView>
+    <GrandientBackground>
+      <ScrollView>
 
-      {/* Main Carousel */}
-      <View style={homeStyles.carouselContainer}>
-        <MainCarousel movies={nowPlaying} />
-      </View>
+        {/* Main Carousel */}
+        <View style={homeStyles.carouselContainer}>
+          <MainCarousel movies={nowPlaying} />
+        </View>
 
-      {/* Movie Theater */}
-      <HorizontalSlider title='Movie Theater' movies={nowPlaying} />
+        {/* Movie Theater */}
+        <HorizontalSlider title='Movie Theater' movies={nowPlaying} />
 
-      {/* Popular Movies */}
-      <HorizontalSlider title='Popular' movies={popular} />
+        {/* Popular Movies */}
+        <HorizontalSlider title='Popular' movies={popular} />
 
-      {/* Top rated */}
-      <HorizontalSlider title='Top Rated' movies={topRated} />
+        {/* Top rated */}
+        <HorizontalSlider title='Top Rated' movies={topRated} />
 
-      {/* Upcoming */}
-      <HorizontalSlider title='Upcoming' movies={upcoming} />
-    </ScrollView>
+        {/* Upcoming */}
+        <HorizontalSlider title='Upcoming' movies={upcoming} />
+      </ScrollView>
+    </GrandientBackground>
   )
 }

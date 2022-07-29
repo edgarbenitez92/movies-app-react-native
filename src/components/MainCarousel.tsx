@@ -8,6 +8,7 @@ import { Movie } from '../interfaces/movies.interfaces';
 import { carouselStyles } from '../styles/CarouselStyles';
 import { getImageColors } from '../helpers/getColors';
 import { GradientContext } from '../context/GradientContext';
+import { useEffect } from 'react';
 
 interface Props {
   movies: Movie[];
@@ -24,6 +25,10 @@ export const MainCarousel = ({ movies }: Props) => {
 
     setMainColors({ primary, secondary });
   }
+
+  useEffect(() => {
+    if (movies.length) getPosterColors(0);
+  }, [movies])
 
   return (
     <Carousel

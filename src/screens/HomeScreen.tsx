@@ -12,7 +12,7 @@ import { useMovies } from '../hooks/useMovies'
 
 import { homeStyles } from '../styles/HomeStyles';
 import { MainCarousel } from '../components/MainCarousel';
-import { GrandientBackground } from '../components/GrandientBackground';
+import { GradientBackground } from '../components/GradientBackground';
 
 export const HomeScreen = () => {
 
@@ -22,7 +22,7 @@ export const HomeScreen = () => {
   if (isLoading) return <Spinner></Spinner>;
 
   return (
-    <GrandientBackground>
+    <GradientBackground>
       <ScrollView>
 
         {/* Main Carousel */}
@@ -42,6 +42,6 @@ export const HomeScreen = () => {
         {/* Upcoming */}
         <HorizontalSlider title='Upcoming' movies={upcoming} />
       </ScrollView>
-    </GrandientBackground>
+    </GradientBackground>
   )
 }

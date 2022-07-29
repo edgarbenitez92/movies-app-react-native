@@ -2,20 +2,19 @@ import { StyleSheet } from "react-native";
 
 export const moviePosterStyles = StyleSheet.create({
   card: {
-    width: 300,
-    height: 420,
+    marginHorizontal: 8
   },
   imageContainer: {
     flex: 1,
     borderRadius: 18,
     shadowColor: "#000",
     shadowOffset: {
-      width: 5,
+      width: 0,
       height: 4,
     },
-    shadowOpacity: 0.65,
-    shadowRadius: 7.49,
-    elevation: 12,
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+    elevation: 9
   },
   image: {
     flex: 1,

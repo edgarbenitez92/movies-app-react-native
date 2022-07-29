@@ -1,6 +1,6 @@
 import React from 'react'
 import { ActivityIndicator, View } from 'react-native'
-import { spinnerStyles } from '../styles/Spinner'
+import { spinnerStyles } from '../styles/SpinnerStyles'
 
 export const Spinner = () => {
   return (

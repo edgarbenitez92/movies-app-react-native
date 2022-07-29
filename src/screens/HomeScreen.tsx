@@ -14,14 +14,10 @@ import { homeStyles } from '../styles/HomeStyles';
 
 export const HomeScreen = () => {
 
-  const { cineMovies, popularMovies, topRatedMovies, upcomingMovies, isLoading } = useMovies();
+  const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
   const { top } = useSafeAreaInsets();
 
   if (isLoading) return <Spinner></Spinner>;
-
-  const customConfig = {
-    opacity: 0.9
-  }
 
   return (
     <ScrollView>
@@ -38,7 +34,7 @@ export const HomeScreen = () => {
             parallaxAdjacentItemScale: 0.75,
           }}
           snapEnabled
-          data={cineMovies}
+          data={nowPlaying}
           renderItem={({ item }: any) => <MoviePoster movie={item} />}
           width={300}
           height={420}
@@ -46,17 +42,16 @@ export const HomeScreen = () => {
       </View>
 
       {/* Movie Theater */}
-      <HorizontalSlider title='Movie Theater' movies={cineMovies} />
+      <HorizontalSlider title='Movie Theater' movies={nowPlaying} />
 
       {/* Popular Movies */}
-      <HorizontalSlider title='Popular' movies={popularMovies} />
+      <HorizontalSlider title='Popular' movies={popular} />
 
       {/* Top rated */}
-      <HorizontalSlider title='Top Rated' movies={topRatedMovies} />
+      <HorizontalSlider title='Top Rated' movies={topRated} />
 
       {/* Upcoming */}
-      <HorizontalSlider title='Upcoming' movies={upcomingMovies} />
-
+      <HorizontalSlider title='Upcoming' movies={upcoming} />
     </ScrollView>
   )
 }

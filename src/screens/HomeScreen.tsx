@@ -11,6 +11,7 @@ import { HorizontalSlider } from '../components/HorizontalSlider';
 import { useMovies } from '../hooks/useMovies'
 
 import { homeStyles } from '../styles/HomeStyles';
+import { MainCarousel } from '../components/MainCarousel';
 
 export const HomeScreen = () => {
 
@@ -24,21 +25,7 @@ export const HomeScreen = () => {
 
       {/* Main Carousel */}
       <View style={homeStyles.carouselContainer}>
-        <Carousel
-          mode='parallax'
-          style={homeStyles.carousel}
-          windowSize={2}
-          modeConfig={{
-            parallaxScrollingScale: 0.9,
-            parallaxScrollingOffset: 40,
-            parallaxAdjacentItemScale: 0.75,
-          }}
-          snapEnabled
-          data={nowPlaying}
-          renderItem={({ item }: any) => <MoviePoster movie={item} />}
-          width={300}
-          height={420}
-        />
+        <MainCarousel movies={nowPlaying} />
       </View>
 
       {/* Movie Theater */}

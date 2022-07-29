@@ -14,7 +14,7 @@ import { homeStyles } from '../styles/HomeStyles';
 
 export const HomeScreen = () => {
 
-  const { cineMovies, isLoading } = useMovies();
+  const { cineMovies, popularMovies, topRatedMovies, upcomingMovies, isLoading } = useMovies();
   const { top } = useSafeAreaInsets();
 
   if (isLoading) return <Spinner></Spinner>;
@@ -25,8 +25,6 @@ export const HomeScreen = () => {
 
   return (
     <ScrollView>
-
-      {/* <View style={{ marginTop: top + 20 }}> */}
 
       {/* Main Carousel */}
       <View style={homeStyles.carouselContainer}>
@@ -47,9 +45,18 @@ export const HomeScreen = () => {
         />
       </View>
 
+      {/* Movie Theater */}
+      <HorizontalSlider title='Movie Theater' movies={cineMovies} />
+
       {/* Popular Movies */}
-      <HorizontalSlider title='Popular' movies={cineMovies} />
-      {/* </View> */}
+      <HorizontalSlider title='Popular' movies={popularMovies} />
+
+      {/* Top rated */}
+      <HorizontalSlider title='Top Rated' movies={topRatedMovies} />
+
+      {/* Upcoming */}
+      <HorizontalSlider title='Upcoming' movies={upcomingMovies} />
+
     </ScrollView>
   )
 }

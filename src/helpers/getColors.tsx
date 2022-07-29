@@ -5,7 +5,6 @@ export const getImageColors = async (uri: string) => {
   const colors = await ImageColors.getColors(uri, {
     fallback: '#228B22',
     cache: true,
-    key: 'unique_key',
   });
 
   let primary;

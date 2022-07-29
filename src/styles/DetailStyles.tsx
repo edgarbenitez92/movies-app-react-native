@@ -7,7 +7,6 @@ export const detailStyles = StyleSheet.create({
   imageContainer: {
     width: '100%',
     height: screenHeight * 0.7,
-    overflow: 'hidden',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -16,6 +15,12 @@ export const detailStyles = StyleSheet.create({
     shadowOpacity: 0.32,
     shadowRadius: 5.46,
     elevation: 9,
+    borderBottomEndRadius: 20,
+    borderBottomStartRadius: 20
+  },
+  imageBorder: {
+    flex: 1,
+    overflow: 'hidden',
     borderBottomEndRadius: 20,
     borderBottomStartRadius: 20
   },

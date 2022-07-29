@@ -18,10 +18,12 @@ export const DetailScreen = ({ route }: Props) => {
 
     <ScrollView>
       <View style={detailStyles.imageContainer}>
-        <Image
-          source={{ uri }}
-          style={detailStyles.posterImage}
-        />
+        <View style={detailStyles.imageBorder}>
+          <Image
+            source={{ uri }}
+            style={detailStyles.posterImage}
+          />
+        </View>
       </View>
 
       <View style={detailStyles.titlesContainer}>

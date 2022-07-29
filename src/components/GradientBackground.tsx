@@ -15,12 +15,10 @@ export const GradientBackground = ({ children }: Props) => {
   const { opacity, fadeIn, fadeOut } = useFade();
 
   useEffect(() => {
-
     fadeIn(() => {
       setPrevMainColors(colors);
-      fadeOut();
+      fadeOut(0);
     })
-
   }, [colors])
 
 

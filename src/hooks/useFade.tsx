@@ -16,12 +16,12 @@ export const useFade = () => {
     ).start(() => callBack ? callBack() : null);
   }
 
-  const fadeOut = () => {
+  const fadeOut = (duration: number) => {
     Animated.timing(
       opacity,
       {
         toValue: 0,
-        duration: 1000,
+        duration,
         useNativeDriver: true
       }
     ).start();

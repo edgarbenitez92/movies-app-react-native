@@ -8,6 +8,6 @@ export const homeStyles = StyleSheet.create({
   },
   carousel: {
     width: windowWidth,
-    justifyContent: 'center'
+    justifyContent: 'center',
   }
 });

@@ -2,7 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const moviePosterStyles = StyleSheet.create({
   card: {
-    marginHorizontal: 8
+    marginHorizontal: 2,
+    paddingBottom: 20,
+    paddingHorizontal: 5
   },
   imageContainer: {
     flex: 1,

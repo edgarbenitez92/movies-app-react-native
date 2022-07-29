@@ -11,16 +11,25 @@ export const movieDetailsStyles = StyleSheet.create({
   rateDetails: {
     marginLeft: 5
   },
-  historyTitle: {
-
+  titlesDetails: {
+    fontSize: 23,
+    marginTop: 10,
+    fontWeight: 'bold',
+    marginBottom: 5
   },
   historyDetail: {
-
-  },
-  budgetTitle: {
-
+    fontSize: 16
   },
   budgetDetail: {
-
+    fontSize: 16
+  },
+  castingContainer: {
+    marginTop: 10,
+    marginBottom: 100
+  },
+  swiperContainer: {
+    marginTop: 10,
+    height: 70
   }
+
 });

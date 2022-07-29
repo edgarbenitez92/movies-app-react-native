@@ -1,11 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { Cast } from '../interfaces/credits.interface';
+
+import { CastDetails } from './CastDetails';
+
 import { MovieFullDetail } from '../interfaces/movie.interface';
+import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
 
 import Icon from 'react-native-vector-icons/Octicons';
-import currencyFormatter from 'currency-formatter';
-import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
@@ -33,22 +35,38 @@ export const MovieDetails = ({ movieFull, cast }: Props) => {
         </View>
 
         {/* History */}
-        <Text style={{ fontSize: 23, marginTop: 10, fontWeight: 'bold', marginBottom: 5 }}>
+        <Text style={movieDetailsStyles.titlesDetails}>
           History
         </Text>
 
-        <Text style={{ fontSize: 16 }}>{overview}</Text>
+        <Text style={movieDetailsStyles.historyDetail}>{overview}</Text>
 
         {/* Budget */}
-        <Text style={{ fontSize: 23, marginTop: 10, fontWeight: 'bold', marginBottom: 5 }}>
+        <Text style={movieDetailsStyles.titlesDetails}>
           Budget
         </Text>
+        <Text style={movieDetailsStyles.budgetDetail}> {new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(budget)}</Text>
 
-        {/* <Text style={{ fontSize: 16 }}>{currencyFormatter.format(budget, { code: 'USD' })}</Text> */}
-        <Text> {new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(budget)}</Text>
       </View>
 
       {/* Casting */}
+      <View style={movieDetailsStyles.castingContainer}>
+        <Text style={{
+          ...movieDetailsStyles.titlesDetails,
+          marginHorizontal: 20,
+        }}>
+          Actors
+        </Text>
+
+        <FlatList
+          style={movieDetailsStyles.swiperContainer}
+          data={cast}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <CastDetails actor={item} />}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
     </>
   )
 }

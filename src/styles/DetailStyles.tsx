@@ -38,5 +38,10 @@ export const detailStyles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  returnButton: {
+    position: 'absolute',
+    top: 30,
+    left: 20
   }
 });

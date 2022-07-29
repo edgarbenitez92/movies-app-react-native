@@ -1,18 +1,18 @@
-import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
-import { ActivityIndicator, Image, ScrollView, Text, View } from 'react-native';
-// import { Movie } from '../interfaces/movies.interfaces';
-import { RootStackParams } from '../navigation/Navigation';
-import { detailStyles } from '../styles/DetailStyles';
-
+import { ActivityIndicator, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { StackScreenProps } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Octicons'
-import { useMovieDetails } from '../hooks/useMovieDetails';
-import { Spinner } from '../components/Spinner';
+
 import { MovieDetails } from '../components/MovieDetails';
+
+import { useMovieDetails } from '../hooks/useMovieDetails';
+import { RootStackParams } from '../navigation/Navigation';
+
+import { detailStyles } from '../styles/DetailStyles';
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { };
 
-export const DetailScreen = ({ route }: Props) => {
+export const DetailScreen = ({ route, navigation }: Props) => {
 
   // const movie = route.params as Movie;
   const movie = route.params;
@@ -20,8 +20,6 @@ export const DetailScreen = ({ route }: Props) => {
   const uri = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
   const { isLoading, movieFullDetails, cast } = useMovieDetails(id);
-
-  // if (isLoading) return <Spinner></Spinner>;
 
   return (
     <ScrollView>
@@ -43,8 +41,19 @@ export const DetailScreen = ({ route }: Props) => {
         isLoading
           ? <ActivityIndicator size={35} color='grey' style={{ marginTop: 20 }} />
           : <MovieDetails movieFull={movieFullDetails!} cast={cast} />
-        // <Icon name='star' color='grey' size={20} />
       }
+
+      {/* Close DetailScreen */}
+      <TouchableOpacity
+        style={detailStyles.returnButton}
+        onPress={() => navigation.goBack()}
+      >
+        <Icon
+          name='chevron-left'
+          color='white'
+          size={40}
+        />
+      </TouchableOpacity>
     </ScrollView>
   )
 }

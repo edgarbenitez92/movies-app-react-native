@@ -42,7 +42,7 @@ export const MainCarousel = ({ movies }: Props) => {
       }}
       snapEnabled
       data={movies}
-      renderItem={({ item }: any) => <MoviePoster movie={item} />}
+      renderItem={({ item }) => <MoviePoster movie={item} />}
       width={300}
       height={420}
       onSnapToItem={(index) => getPosterColors(index)}

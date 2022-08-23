@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.moviesappreactnative">
+  package="com.edgarbenitez92.moviesappreactnative">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

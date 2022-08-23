@@ -1,4 +1,4 @@
-package com.moviesappreactnative.newarchitecture.components;
+package com.edgarbenitez92.moviesappreactnative.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

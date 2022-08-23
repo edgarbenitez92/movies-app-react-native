@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import Carousel from 'react-native-reanimated-carousel';
-
-import { MoviePoster } from '../components/MoviePoster';
 import { Spinner } from '../components/Spinner';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 
@@ -14,10 +11,15 @@ import { homeStyles } from '../styles/HomeStyles';
 import { MainCarousel } from '../components/MainCarousel';
 import { GradientBackground } from '../components/GradientBackground';
 
+import SplashScreen from 'react-native-splash-screen';
+
 export const HomeScreen = () => {
 
   const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
-  const { top } = useSafeAreaInsets();
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   if (isLoading) return <Spinner></Spinner>;
 

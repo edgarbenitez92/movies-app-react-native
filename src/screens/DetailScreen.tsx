@@ -6,9 +6,9 @@ import Icon from 'react-native-vector-icons/Octicons'
 import { MovieDetails } from '../components/MovieDetails';
 
 import { useMovieDetails } from '../hooks/useMovieDetails';
-import { RootStackParams } from '../navigation/Navigation';
 
 import { detailStyles } from '../styles/DetailStyles';
+import { RootStackParams } from '../types/rootStackParams.type';
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { };
 

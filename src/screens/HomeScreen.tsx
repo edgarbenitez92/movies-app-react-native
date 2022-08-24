@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { ScrollView, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Spinner } from '../components/Spinner';
 import { HorizontalSlider } from '../components/HorizontalSlider';

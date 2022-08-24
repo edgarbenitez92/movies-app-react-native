@@ -42,8 +42,5 @@ export const useMovies = () => {
     getMovies();
   }, []);
 
-  return {
-    ...moviesState,
-    isLoading
-  }
+  return { ...moviesState, isLoading }
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { StackNavigation } from './StackNavigation';
 import { TabsTopRated } from './TabTopRated';
-import Icon from 'react-native-vector-icons/Octicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { TabsConfig } from './TabConfig';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { Platform } from 'react-native';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -13,8 +14,14 @@ export const TabsNavigation = () => {
     <Tab.Navigator
       initialRouteName='StackNavigation'
       activeColor="#f0edf6"
+      keyboardHidesNavigationBar={true}
       inactiveColor="#000000"
       shifting={true}
+      barStyle={{
+        borderWidth: 0,
+        elevation: 0,
+        height: (Platform.OS == 'ios') ? 80 : 54
+      }}
     >
       <Tab.Screen
         name="StackNavigation"
@@ -23,7 +30,7 @@ export const TabsNavigation = () => {
           tabBarLabel: 'Home',
           tabBarColor: '#EC9B45',
           tabBarIcon: (({ color }) => (
-            <Icon color={color} size={25} name="home" />
+            <Icon color={color} size={25} name="desktop-outline" />
           ))
         }}
       />
@@ -35,7 +42,7 @@ export const TabsNavigation = () => {
           tabBarLabel: 'Top Rated',
           tabBarColor: '#135990',
           tabBarIcon: (({ color }) => (
-            <Icon color={color} size={25} name="search" />
+            <Icon color={color} size={25} name="star-half-outline" />
           ))
         }}
       />
@@ -47,7 +54,7 @@ export const TabsNavigation = () => {
           tabBarLabel: 'Settings',
           tabBarColor: '#58149C',
           tabBarIcon: (({ color }) => (
-            <Icon color={color} size={25} name="search" />
+            <Icon color={color} size={25} name="search-outline" />
           ))
         }}
       />

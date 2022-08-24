@@ -11,28 +11,28 @@ export const useMovies = () => {
   const [moviesState, setMoviesState] = useState<MoviesState>({
     nowPlaying: [],
     popular: [],
-    topRated: [],
+    // topRated: [],
     upcoming: []
   });
 
   const getMovies = async () => {
     const nowPlayingPromise = movieDB.get<MovieDB>('/now_playing');
     const popularPromise = movieDB.get<MovieDB>('/popular');
-    const topRatedPromise = movieDB.get<MovieDB>('/top_rated');
+    // const topRatedPromise = movieDB.get<MovieDB>('/top_rated');
     const upcomingPromise = movieDB.get<MovieDB>('/upcoming');
 
     const moviesData = await Promise.all([
       nowPlayingPromise,
       popularPromise,
-      topRatedPromise,
+      // topRatedPromise,
       upcomingPromise
     ]);
 
     setMoviesState({
       nowPlaying: moviesData[0].data.results,
       popular: moviesData[1].data.results,
-      topRated: moviesData[2].data.results,
-      upcoming: moviesData[3].data.results,
+      // topRated: moviesData[2].data.results,
+      upcoming: moviesData[2].data.results,
     });
 
     setIsLoading(false);

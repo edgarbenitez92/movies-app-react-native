@@ -18,7 +18,7 @@ interface Props {
 
 export const MovieDetails = ({ movieFull, cast }: Props) => {
 
-  let { vote_average, genres, overview, budget } = movieFull;
+  const { vote_average, genres, overview, budget } = movieFull;
 
   return (
     <>
@@ -39,13 +39,17 @@ export const MovieDetails = ({ movieFull, cast }: Props) => {
           History
         </Text>
 
-        <Text style={movieDetailsStyles.historyDetail}>{overview}</Text>
+        <Text style={movieDetailsStyles.historyDetail}>
+          {overview}
+        </Text>
 
         {/* Budget */}
         <Text style={movieDetailsStyles.titlesDetails}>
           Budget
         </Text>
-        <Text style={movieDetailsStyles.budgetDetail}> {new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(budget)}</Text>
+        <Text style={movieDetailsStyles.budgetDetail}>
+          {new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(budget)}
+        </Text>
 
       </View>
 

@@ -2,11 +2,10 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const screenHeight = Dimensions.get('window').height;
 
-
 export const detailStyles = StyleSheet.create({
   imageContainer: {
     width: '100%',
-    height: screenHeight * 0.7,
+    height: screenHeight * 0.75,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -25,7 +24,7 @@ export const detailStyles = StyleSheet.create({
     borderBottomStartRadius: 20
   },
   posterImage: {
-    flex: 1
+    flex: 1,
   },
   titlesContainer: {
     marginHorizontal: 20,
@@ -37,7 +36,8 @@ export const detailStyles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'black'
   },
   returnButton: {
     position: 'absolute',

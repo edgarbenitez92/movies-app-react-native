@@ -29,7 +29,8 @@ export const castDetailsStyles = StyleSheet.create({
   },
   actorName: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'black'
   },
   actorCharacterName: {
     fontSize: 16,

@@ -20,7 +20,7 @@ export const HorizontalSlider = ({ title, movies }: Props) => {
 
       <FlatList
         data={movies}
-        renderItem={({ item }: any) => (
+        renderItem={({ item }) => (
           <MoviePoster movie={item} width={140} height={200} />
         )}
         keyExtractor={(item) => item.id.toString()}

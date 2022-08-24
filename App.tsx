@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import { Navigation } from './src/navigation/Navigation';
-import { FadeScreen } from './src/screens/FadeScreen';
 import { GradientProvider } from './src/context/GradientContext';
 
 const AppState = ({ children }: any) => {
@@ -19,7 +18,6 @@ const App = () => {
     <NavigationContainer>
       <AppState>
         <Navigation />
-        {/* <FadeScreen /> */}
       </AppState>
     </NavigationContainer>
   )

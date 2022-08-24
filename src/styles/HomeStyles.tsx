@@ -4,7 +4,7 @@ const { width: windowWidth } = Dimensions.get('window');
 
 export const homeStyles = StyleSheet.create({
   carouselContainer: {
-    height: 440
+    height: 450
   },
   carousel: {
     width: windowWidth,

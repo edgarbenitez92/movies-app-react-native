@@ -5,6 +5,9 @@ import { verticalSliderStyles } from '../styles/VerticalTRSliderStyles';
 import { MoviePoster } from './MoviePoster';
 import Icon from 'react-native-vector-icons/Octicons';
 import { useNavigation } from '@react-navigation/native';
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+import { useGenresMovie } from '../hooks/useGenresMovie';
 
 interface Props {
   movie: Movie;
@@ -14,6 +17,8 @@ interface Props {
 export const VerticalTRSlider = ({ movie, position }: Props) => {
 
   const { navigate } = useNavigation<any>();
+  const isMovieAvailable: boolean = movie ? true : false;
+  const { genres } = useGenresMovie(movie, isMovieAvailable);
 
   return (
     <TouchableOpacity
@@ -40,7 +45,7 @@ export const VerticalTRSlider = ({ movie, position }: Props) => {
 
           {/* Movie Voters */}
           <Text style={verticalSliderStyles.movieDetails}>
-            N° voters: {movie.vote_count}
+            N° voters: {new Intl.NumberFormat().format(movie.vote_count)}
           </Text>
 
           {/* Release date */}
@@ -55,7 +60,7 @@ export const VerticalTRSlider = ({ movie, position }: Props) => {
 
           {/* Genres */}
           <Text style={verticalSliderStyles.movieDetails}>
-            Genre: {movie.genre_ids[0]}
+            Genre: {genres?.map(gene => gene.name).join(', ')}
           </Text>
         </View>
       </View>

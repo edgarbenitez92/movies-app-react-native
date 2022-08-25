@@ -1,12 +1,9 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { Cast } from '../interfaces/credits.interface';
-
 import { CastDetails } from './CastDetails';
-
 import { MovieFullDetail } from '../interfaces/movie.interface';
 import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
-
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';

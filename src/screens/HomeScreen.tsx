@@ -32,13 +32,10 @@ export const HomeScreen = () => {
         </View>
 
         {/* Movie Theater */}
-        <HorizontalSlider title='Movie Theater' movies={nowPlaying} />
+        {/* <HorizontalSlider title='Movie Theater' movies={nowPlaying} /> */}
 
         {/* Popular Movies */}
         <HorizontalSlider title='Popular' movies={popular} />
-
-        {/* Top rated */}
-        {/* <HorizontalSlider title='Top Rated' movies={topRated} /> */}
 
         {/* Upcoming */}
         <HorizontalSlider title='Upcoming' movies={upcoming} />

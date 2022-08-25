@@ -27,10 +27,10 @@ export const TabsNavigation = () => {
         name="StackNavigation"
         component={StackNavigation}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Cine',
           tabBarColor: '#EC9B45',
           tabBarIcon: (({ color }) => (
-            <Icon color={color} size={25} name="desktop-outline" />
+            <Icon color={color} size={25} name="videocam-outline" />
           ))
         }}
       />
@@ -51,10 +51,10 @@ export const TabsNavigation = () => {
         name="TabsConfig"
         component={TabsConfig}
         options={{
-          tabBarLabel: 'Settings',
+          tabBarLabel: 'TV Shows',
           tabBarColor: '#58149C',
           tabBarIcon: (({ color }) => (
-            <Icon color={color} size={25} name="search-outline" />
+            <Icon color={color} size={25} name="desktop-outline" />
           ))
         }}
       />

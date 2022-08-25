@@ -1,7 +1,7 @@
 
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { ConfigurationScreen } from "../screens/ConfigurationScreen";
+import { TvShowsScreen } from "../screens/TvShowsScreen";
 
 const Tabs = createStackNavigator();
 
@@ -15,7 +15,7 @@ export const TabsConfig = () => {
         }
       }}
     >
-      <Tabs.Screen name="ConfigurationScreen" component={ConfigurationScreen} />
+      <Tabs.Screen name="TvShowsScreen" component={TvShowsScreen} />
     </Tabs.Navigator>
   );
 }

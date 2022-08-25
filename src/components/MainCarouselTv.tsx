@@ -3,22 +3,23 @@ import Carousel from 'react-native-reanimated-carousel';
 
 import { MoviePoster } from './MoviePoster';
 
-import { Movie } from '../interfaces/movies.interface';
 import { carouselStyles } from '../styles/CarouselStyles';
 import { getImageColors } from '../helpers/getColors';
 import { GradientContext } from '../context/GradientContext';
 import { useEffect } from 'react';
+import { TvShow } from '../interfaces/tvShow.interface';
+import { TvShowPoster } from './TvShowPoster';
 
 interface Props {
-  movies: Movie[];
+  tvShows: TvShow[];
 }
 
-export const MainCarousel = ({ movies }: Props) => {
+export const MainCarouselTv = ({ tvShows }: Props) => {
 
   const { setMainColors } = useContext(GradientContext);
 
   const getPosterColors = async (index: number) => {
-    const { poster_path } = movies[index];
+    const { poster_path } = tvShows[index];
     const uri = `https://image.tmdb.org/t/p/w500${poster_path}`;
     const [primary = 'green', secondary = 'red'] = await getImageColors(uri);
 
@@ -26,8 +27,8 @@ export const MainCarousel = ({ movies }: Props) => {
   }
 
   useEffect(() => {
-    if (movies.length) getPosterColors(0);
-  }, [movies])
+    if (tvShows.length) getPosterColors(0);
+  }, [tvShows])
 
   return (
     <Carousel
@@ -40,8 +41,8 @@ export const MainCarousel = ({ movies }: Props) => {
         parallaxAdjacentItemScale: 0.75,
       }}
       snapEnabled
-      data={movies}
-      renderItem={({ item }) => <MoviePoster movie={item} />}
+      data={tvShows}
+      renderItem={({ item }) => <TvShowPoster tvShow={item} />}
       width={300}
       height={420}
       onSnapToItem={(index) => getPosterColors(index)}

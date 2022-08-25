@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import movieDB from "../api/movieDB";
-import { Movie, MovieDB } from "../interfaces/movies.interfaces";
+import { Movie, MovieDB } from "../interfaces/movies.interface";
 
 export const useTopRatedMovie = () => {
 

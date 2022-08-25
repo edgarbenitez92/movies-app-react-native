@@ -1,13 +1,16 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { Movie } from '../interfaces/movies.interfaces';
-import { verticalSliderStyles } from '../styles/VerticalTRSliderStyles';
-import { MoviePoster } from './MoviePoster';
-import Icon from 'react-native-vector-icons/Octicons';
 import { useNavigation } from '@react-navigation/native';
+
+import { MoviePoster } from './MoviePoster';
+import { useGenresMovie } from '../hooks/useGenresMovie';
+
+import { verticalSliderStyles } from '../styles/VerticalTRSliderStyles';
+import { Movie } from '../interfaces/movies.interface';
+
+import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import { useGenresMovie } from '../hooks/useGenresMovie';
 
 interface Props {
   movie: Movie;

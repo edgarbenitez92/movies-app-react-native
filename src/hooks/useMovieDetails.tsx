@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import movieDB from "../api/movieDB";
 import { Cast, CreditsData } from "../interfaces/credits.interface";
 import { MovieFullDetail } from "../interfaces/movie.interface";
-import { Movie, MovieDB } from "../interfaces/movies.interfaces";
+import { Movie, MovieDB } from "../interfaces/movies.interface";
 
 interface MovieDetails {
   isLoading: boolean;

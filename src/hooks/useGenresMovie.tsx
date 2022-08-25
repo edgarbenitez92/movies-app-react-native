@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import genreDB from "../api/genreDB";
 import { Genre } from "../interfaces/movie.interface";
-import { Movie } from "../interfaces/movies.interfaces";
+import { Movie } from "../interfaces/movies.interface";
 
 export const useGenresMovie = (movie: Movie, isMovieAvailable: boolean) => {
 

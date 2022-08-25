@@ -12,11 +12,9 @@ import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import VideoPlayer from 'react-native-video';
-import { WebView } from 'react-native-webview';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import { useMovieTrailer } from '../hooks/useMovieTrailer';
-import { Trailer } from '../interfaces/trailerMovie.interface';
+import { Spinner } from './Spinner';
 
 interface Props {
   movieFull: MovieFullDetail;
@@ -29,6 +27,8 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
   const { vote_average, genres, overview, budget } = movieFull;
   const { trailerState, isLoading, trailersYoutubeList } = useMovieTrailer(movieFull.id);
   const trailerYoutubeKey = trailerState?.length ? trailerState[0].key : '';
+
+  if (isLoading) return <Spinner />
 
   return (
     <>

@@ -44,7 +44,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
       }
 
       {/* Close DetailScreen */}
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={detailStyles.returnButton}
         onPress={() => navigation.goBack()}
       >
@@ -53,7 +53,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
           color='white'
           size={40}
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </ScrollView>
   )
 }

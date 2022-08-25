@@ -6,9 +6,9 @@ import Icon from 'react-native-vector-icons/Octicons'
 import { MovieDetails } from '../components/MovieDetails';
 
 import { useMovieDetails } from '../hooks/useMovieDetails';
-import { RootStackParams } from '../navigation/Navigation';
 
 import { detailStyles } from '../styles/DetailStyles';
+import { RootStackParams } from '../types/rootStackParams.type';
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { };
 
@@ -19,7 +19,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
   const { poster_path, original_title, title, id } = movie;
   const uri = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
-  const { isLoading, movieFullDetails, cast } = useMovieDetails(id);
+  const { isLoading, movieFullDetails, cast, similarMovies } = useMovieDetails(id);
 
   return (
     <ScrollView>
@@ -40,11 +40,11 @@ export const DetailScreen = ({ route, navigation }: Props) => {
       {
         isLoading
           ? <ActivityIndicator size={35} color='grey' style={{ marginTop: 20 }} />
-          : <MovieDetails movieFull={movieFullDetails!} cast={cast} />
+          : <MovieDetails movieFull={movieFullDetails!} cast={cast} similarMovies={similarMovies!} />
       }
 
       {/* Close DetailScreen */}
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={detailStyles.returnButton}
         onPress={() => navigation.goBack()}
       >
@@ -53,7 +53,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
           color='white'
           size={40}
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </ScrollView>
   )
 }

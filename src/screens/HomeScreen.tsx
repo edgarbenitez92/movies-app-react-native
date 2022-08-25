@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { ScrollView, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Spinner } from '../components/Spinner';
 import { HorizontalSlider } from '../components/HorizontalSlider';
@@ -15,13 +14,13 @@ import SplashScreen from 'react-native-splash-screen';
 
 export const HomeScreen = () => {
 
-  const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
+  const { nowPlaying, popular, upcoming, isLoading } = useMovies();
 
   useEffect(() => {
     SplashScreen.hide();
   }, []);
 
-  if (isLoading) return <Spinner></Spinner>;
+  if (isLoading) return <Spinner />;
 
   return (
     <GradientBackground>
@@ -39,7 +38,7 @@ export const HomeScreen = () => {
         <HorizontalSlider title='Popular' movies={popular} />
 
         {/* Top rated */}
-        <HorizontalSlider title='Top Rated' movies={topRated} />
+        {/* <HorizontalSlider title='Top Rated' movies={topRated} /> */}
 
         {/* Upcoming */}
         <HorizontalSlider title='Upcoming' movies={upcoming} />

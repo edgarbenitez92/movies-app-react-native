@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigation } from './StackNavigation';
 import { TabsTopRated } from './TabTopRated';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { TabsConfig } from './TabConfig';
+import { TabsTvShow } from './TabTvShow';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Platform } from 'react-native';
 
@@ -48,8 +48,8 @@ export const TabsNavigation = () => {
       />
 
       <Tab.Screen
-        name="TabsConfig"
-        component={TabsConfig}
+        name="TabsTvShow"
+        component={TabsTvShow}
         options={{
           tabBarLabel: 'TV Shows',
           tabBarColor: '#58149C',

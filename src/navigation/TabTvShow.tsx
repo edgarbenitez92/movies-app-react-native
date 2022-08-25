@@ -5,7 +5,7 @@ import { TvShowsScreen } from "../screens/TvShowsScreen";
 
 const Tabs = createStackNavigator();
 
-export const TabsConfig = () => {
+export const TabsTvShow = () => {
   return (
     <Tabs.Navigator
       screenOptions={{

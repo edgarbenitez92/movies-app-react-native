@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import movieDB from "../api/movieDB";
 import { Cast, CreditsData } from "../interfaces/credits.interface";
 import { MovieFullDetail } from "../interfaces/movie.interface";
+import { Movie, MovieDB } from "../interfaces/movies.interfaces";
 
 interface MovieDetails {
   isLoading: boolean;
   movieFullDetails?: MovieFullDetail;
   cast: Cast[];
+  similarMovies?: Movie[];
 }
 
 export const useMovieDetails = (movieId: number) => {
@@ -14,22 +16,29 @@ export const useMovieDetails = (movieId: number) => {
   const [state, setState] = useState<MovieDetails>({
     isLoading: true,
     movieFullDetails: undefined,
-    cast: []
+    cast: [],
+    similarMovies: undefined
   });
 
-  let { isLoading, movieFullDetails, cast } = state;
+  let { isLoading, movieFullDetails, cast, similarMovies } = state;
 
   const getMovieDetails = async () => {
 
     const movieDetailsPromise = movieDB.get<MovieFullDetail>(`/${movieId}`);
     const castPromise = movieDB.get<CreditsData>(`/${movieId}/credits`);
+    const similarMoviesPromise = movieDB.get<MovieDB>(`/${movieId}/similar`);
 
-    const [movieDetails, castDetails] = await Promise.all([movieDetailsPromise, castPromise]);
+    const [movieDetails, castDetails, similarMoviesDetails] = await Promise.all([
+      movieDetailsPromise,
+      castPromise,
+      similarMoviesPromise
+    ]);
 
     setState({
       isLoading: false,
       movieFullDetails: movieDetails.data,
-      cast: castDetails.data.cast
+      cast: castDetails.data.cast,
+      similarMovies: similarMoviesDetails.data.results
     })
   }
 
@@ -37,5 +46,5 @@ export const useMovieDetails = (movieId: number) => {
     getMovieDetails();
   }, []);
 
-  return { isLoading, cast, movieFullDetails };
+  return { isLoading, cast, movieFullDetails, similarMovies };
 }

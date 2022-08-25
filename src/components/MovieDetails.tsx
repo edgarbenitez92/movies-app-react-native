@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Cast } from '../interfaces/credits.interface';
 import { CastDetails } from './CastDetails';
 import { MovieFullDetail } from '../interfaces/movie.interface';
@@ -7,15 +7,20 @@ import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
+import { Movie } from '../interfaces/movies.interfaces';
+import { useNavigation } from '@react-navigation/native';
+import { SimilarMovieCard } from './SimilarMovieCard';
 
 interface Props {
   movieFull: MovieFullDetail;
   cast: Cast[];
+  similarMovies: Movie[];
 }
 
-export const MovieDetails = ({ movieFull, cast }: Props) => {
+export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
 
   const { vote_average, genres, overview, budget } = movieFull;
+  const navigation = useNavigation<any>();
 
   return (
     <>
@@ -48,26 +53,40 @@ export const MovieDetails = ({ movieFull, cast }: Props) => {
           {new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(budget)}
         </Text>
 
+        {/* Casting */}
+        <View style={movieDetailsStyles.castingContainer}>
+          <Text style={movieDetailsStyles.titlesDetails}>
+            Actors
+          </Text>
+
+          <FlatList
+            style={movieDetailsStyles.swiperContainer}
+            data={cast}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => <CastDetails actor={item} />}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+
+        {/* Similar Movies */}
+        <View style={movieDetailsStyles.similarMoviesContainer}>
+          <Text style={movieDetailsStyles.titlesDetails}>
+            Similar Movies
+          </Text>
+
+          <FlatList
+            data={similarMovies}
+            keyExtractor={(movie) => movie.id.toString()}
+            showsHorizontalScrollIndicator={false}
+            horizontal={true}
+            renderItem={(({ item }) => (
+              <SimilarMovieCard movie={item} />
+            ))}
+          />
+        </View>
       </View>
 
-      {/* Casting */}
-      <View style={movieDetailsStyles.castingContainer}>
-        <Text style={{
-          ...movieDetailsStyles.titlesDetails,
-          marginHorizontal: 20,
-        }}>
-          Actors
-        </Text>
-
-        <FlatList
-          style={movieDetailsStyles.swiperContainer}
-          data={cast}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <CastDetails actor={item} />}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
     </>
   )
 }

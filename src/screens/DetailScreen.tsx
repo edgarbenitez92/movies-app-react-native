@@ -19,7 +19,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
   const { poster_path, original_title, title, id } = movie;
   const uri = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
-  const { isLoading, movieFullDetails, cast } = useMovieDetails(id);
+  const { isLoading, movieFullDetails, cast, similarMovies } = useMovieDetails(id);
 
   return (
     <ScrollView>
@@ -40,7 +40,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
       {
         isLoading
           ? <ActivityIndicator size={35} color='grey' style={{ marginTop: 20 }} />
-          : <MovieDetails movieFull={movieFullDetails!} cast={cast} />
+          : <MovieDetails movieFull={movieFullDetails!} cast={cast} similarMovies={similarMovies!} />
       }
 
       {/* Close DetailScreen */}

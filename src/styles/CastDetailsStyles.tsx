@@ -14,7 +14,7 @@ export const castDetailsStyles = StyleSheet.create({
     shadowOpacity: 0.32,
     shadowRadius: 5.46,
     elevation: 9,
-    marginHorizontal: 20,
+    marginHorizontal: 15,
     paddingRight: 15,
     height: 50
   },

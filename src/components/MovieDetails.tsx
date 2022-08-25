@@ -1,14 +1,21 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
-import { Cast } from '../interfaces/credits.interface';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+
 import { CastDetails } from './CastDetails';
+import { SimilarMovieCard } from './SimilarMovieCard';
+
 import { MovieFullDetail } from '../interfaces/movie.interface';
+import { Cast } from '../interfaces/credits.interface';
+import { Movie } from '../interfaces/movies.interface';
 import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
+
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import { Movie } from '../interfaces/movies.interfaces';
-import { SimilarMovieCard } from './SimilarMovieCard';
+import VideoPlayer from 'react-native-video';
+import { WebView } from 'react-native-webview';
+import YoutubePlayer from 'react-native-youtube-iframe';
+import { useMovieTrailer } from '../hooks/useMovieTrailer';
 
 interface Props {
   movieFull: MovieFullDetail;
@@ -19,6 +26,9 @@ interface Props {
 export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
 
   const { vote_average, genres, overview, budget } = movieFull;
+  const { trailerState } = useMovieTrailer(movieFull.id);
+
+  const trailerYoutubeKey = trailerState?.length ? trailerState[0].key : '';
 
   return (
     <>
@@ -71,6 +81,29 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
         />
       </View>
 
+      {/* Trailers */}
+      <View style={movieDetailsStyles.similarMoviesContainer}>
+        <Text style={{
+          ...movieDetailsStyles.titlesDetails,
+          marginLeft: 15
+        }}>
+          Trailers
+        </Text>
+
+        {/* <VideoPlayer
+          source={{ uri: "https://vimeo.com/282875052" }}
+          controls={true}
+          resizeMode={'contain'}
+          style={styles.backgroundVideo}
+        /> */}
+
+        <YoutubePlayer
+          videoId={trailerYoutubeKey}
+          height={300}
+          width={420}
+        />
+      </View>
+
       {/* Similar Movies */}
       <View style={movieDetailsStyles.similarMoviesContainer}>
         <Text style={{
@@ -93,3 +126,10 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  backgroundVideo: {
+    width: 420,
+    height: 300
+  },
+});

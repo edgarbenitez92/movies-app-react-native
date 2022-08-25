@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { Movie } from '../interfaces/movies.interfaces';
+import { Movie } from '../interfaces/movies.interface';
 import { horizontalSliderStyles } from '../styles/HorizontalSliderStyles';
 import { MoviePoster } from './MoviePoster';
 

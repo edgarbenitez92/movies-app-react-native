@@ -1,4 +1,4 @@
-import { Movie } from "./movies.interfaces";
+import { Movie } from "./movies.interface";
 
 export interface MoviesState {
   nowPlaying: Movie[];

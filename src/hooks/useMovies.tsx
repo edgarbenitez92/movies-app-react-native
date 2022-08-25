@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import movieDB from "../api/movieDB";
 
 import { MoviesState } from "../interfaces/flatListMovies.interface";
-import { MovieDB } from "../interfaces/movies.interfaces";
+import { MovieDB } from "../interfaces/movies.interface";
 
 export const useMovies = () => {
 

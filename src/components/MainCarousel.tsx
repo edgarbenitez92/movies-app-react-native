@@ -4,7 +4,7 @@ import ImageColors from 'react-native-image-colors';
 
 import { MoviePoster } from './MoviePoster';
 
-import { Movie } from '../interfaces/movies.interfaces';
+import { Movie } from '../interfaces/movies.interface';
 import { carouselStyles } from '../styles/CarouselStyles';
 import { getImageColors } from '../helpers/getColors';
 import { GradientContext } from '../context/GradientContext';

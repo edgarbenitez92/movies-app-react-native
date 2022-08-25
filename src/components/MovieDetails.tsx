@@ -1,14 +1,20 @@
-import React from 'react';
-import { FlatList, Text, View } from 'react-native';
-import { Cast } from '../interfaces/credits.interface';
+import React, { useEffect } from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+
 import { CastDetails } from './CastDetails';
+import { SimilarMovieCard } from './SimilarMovieCard';
+
 import { MovieFullDetail } from '../interfaces/movie.interface';
+import { Cast } from '../interfaces/credits.interface';
+import { Movie } from '../interfaces/movies.interface';
 import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
+
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import { Movie } from '../interfaces/movies.interfaces';
-import { SimilarMovieCard } from './SimilarMovieCard';
+import YoutubePlayer from 'react-native-youtube-iframe';
+import { useMovieTrailer } from '../hooks/useMovieTrailer';
+import { Spinner } from './Spinner';
 
 interface Props {
   movieFull: MovieFullDetail;
@@ -19,6 +25,10 @@ interface Props {
 export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
 
   const { vote_average, genres, overview, budget } = movieFull;
+  const { trailerState, isLoading, trailersYoutubeList } = useMovieTrailer(movieFull.id);
+  const trailerYoutubeKey = trailerState?.length ? trailerState[0].key : '';
+
+  if (isLoading) return <Spinner />
 
   return (
     <>
@@ -70,6 +80,28 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
           showsHorizontalScrollIndicator={false}
         />
       </View>
+
+      {/* Trailers */}
+      {
+        trailerState?.length &&
+        (
+          <View style={movieDetailsStyles.similarMoviesContainer}>
+            <Text style={{
+              ...movieDetailsStyles.titlesDetails,
+              marginLeft: 15
+            }}>
+              Trailers
+            </Text>
+
+            <YoutubePlayer
+              videoId={trailerYoutubeKey}
+              playList={trailersYoutubeList}
+              height={250}
+              width={420}
+            />
+          </View>
+        )
+      }
 
       {/* Similar Movies */}
       <View style={movieDetailsStyles.similarMoviesContainer}>

@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Dimensions, FlatList, Text, View } from 'react-native';
 
 import { CastDetails } from './CastDetails';
 import { SimilarMovieCard } from './SimilarMovieCard';
+import { Spinner } from './Spinner';
 
 import { MovieFullDetail } from '../interfaces/movie.interface';
 import { Cast } from '../interfaces/credits.interface';
 import { Movie } from '../interfaces/movies.interface';
 import { movieDetailsStyles } from '../styles/MovieDetailsStyles';
+import { useMovieTrailer } from '../hooks/useMovieTrailer';
 
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 import YoutubePlayer from 'react-native-youtube-iframe';
-import { useMovieTrailer } from '../hooks/useMovieTrailer';
-import { Spinner } from './Spinner';
+
+const screenDimensions = Dimensions.get('window').height;
 
 interface Props {
   movieFull: MovieFullDetail;
@@ -28,7 +30,7 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
   const { trailerState, isLoading, trailersYoutubeList } = useMovieTrailer(movieFull.id);
   const trailerYoutubeKey = trailerState?.length ? trailerState[0].key : '';
 
-  if (isLoading) return <Spinner />
+  if (isLoading) return <Spinner />;
 
   return (
     <>
@@ -57,6 +59,7 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
         <Text style={movieDetailsStyles.titlesDetails}>
           Budget
         </Text>
+
         <Text style={movieDetailsStyles.budgetDetail}>
           {new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(budget)}
         </Text>
@@ -93,12 +96,13 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
               Trailers
             </Text>
 
-            <YoutubePlayer
-              videoId={trailerYoutubeKey}
-              playList={trailersYoutubeList}
-              height={250}
-              width={420}
-            />
+            <View style={{ flex: 1 }}>
+              <YoutubePlayer
+                videoId={trailerYoutubeKey}
+                playList={trailersYoutubeList}
+                height={screenDimensions * 0.30}
+              />
+            </View>
           </View>
         )
       }

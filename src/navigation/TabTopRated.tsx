@@ -6,8 +6,9 @@ import { MovieDetailScreen } from "../screens/MovieDetailScreen";
 import { TopRatedSelectionScreen } from "../screens/TopRatedSelectionScreen";
 import { TopRatedTvShowsScreen } from "../screens/TopRatedTvShowsScreen";
 import { TvShowDetailScreen } from '../screens/TvShowDetailScreen';
+import { RootStackParamsTopRated } from "../types/rootStackParamsTopRated.type";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamsTopRated>();
 
 export const TabTopRated = () => {
   return (

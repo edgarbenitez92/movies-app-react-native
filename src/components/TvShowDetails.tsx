@@ -42,6 +42,7 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
 
   const { trailerState, isLoading, trailersYoutubeList } = useTvShowTrailer(tvShowFull.id);
   const trailerYoutubeKey = trailerState?.length ? trailerState[0].key : '';
+  const isActorsDataExist = cast.length ? true : false;
 
   if (isLoading) return <Spinner />;
 
@@ -173,23 +174,28 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
       </View>
 
       {/* Casting */}
-      <View style={tvShowDetailsStyles.castingContainer}>
-        <Text style={{
-          ...tvShowDetailsStyles.titlesDetails,
-          marginLeft: 15
-        }}>
-          Actors
-        </Text>
+      {
+        isActorsDataExist &&
+        (
+          <View style={tvShowDetailsStyles.castingContainer}>
+            <Text style={{
+              ...tvShowDetailsStyles.titlesDetails,
+              marginLeft: 15
+            }}>
+              Actors
+            </Text>
 
-        <FlatList
-          style={tvShowDetailsStyles.swiperContainer}
-          data={cast}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <CastDetails actor={item} />}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
+            <FlatList
+              style={tvShowDetailsStyles.swiperContainer}
+              data={cast}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => <CastDetails actor={item} />}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+        )
+      }
 
       {/* Trailers */}
       {

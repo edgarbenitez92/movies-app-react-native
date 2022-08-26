@@ -18,8 +18,6 @@ export const TvShowDetailScreen = ({ route }: Props) => {
   const uri = `https://image.tmdb.org/t/p/w500${poster_path}`;
   const { isLoading, tvShowDetails, cast, similarTvShows } = useTvShowDetails(id);
 
-  console.log('a ver', similarTvShows);
-
   if (isLoading) return <Spinner />;
 
   return (

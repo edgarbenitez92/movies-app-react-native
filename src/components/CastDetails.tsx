@@ -22,6 +22,7 @@ export const CastDetails = ({ actor }: Props) => {
   return (
     <>
       <TouchableOpacity
+        activeOpacity={0.8}
         onPress={() => setIsVisible(true)}
         style={castDetailsStyles.castContainer}
       >

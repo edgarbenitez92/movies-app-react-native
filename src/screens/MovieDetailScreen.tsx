@@ -7,9 +7,9 @@ import { useMovieDetails } from '../hooks/useMovieDetails';
 import { Spinner } from '../components/Spinner';
 
 import { detailStyles } from '../styles/DetailStyles';
-import { RootStackParams } from '../types/rootStackParams.type';
+import { RootStackParamsMovie } from '../types/rootStackParamsMovie.type';
 
-interface Props extends StackScreenProps<RootStackParams, 'MovieDetailScreen'> { };
+interface Props extends StackScreenProps<RootStackParamsMovie, 'MovieDetailScreen'> { };
 
 export const MovieDetailScreen = ({ route }: Props) => {
 

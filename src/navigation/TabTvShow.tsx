@@ -3,8 +3,9 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { TvShowsScreen } from "../screens/TvShowsScreen";
 import { TvShowDetailScreen } from '../screens/TvShowDetailScreen';
+import { RootStackTvShowParams } from '../types/rootStackParamsTvShow.type';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackTvShowParams>();
 
 export const TabsTvShow = () => {
   return (

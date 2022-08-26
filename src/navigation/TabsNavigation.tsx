@@ -5,6 +5,7 @@ import { TabsTvShow } from './TabTvShow';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { TabSearch } from './TabSearch';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -55,6 +56,18 @@ export const TabsNavigation = () => {
           tabBarColor: '#135990',
           tabBarIcon: (({ color }) => (
             <Icon color={color} size={25} name="star-half-outline" />
+          ))
+        }}
+      />
+
+      <Tab.Screen
+        name="TabSearch"
+        component={TabSearch}
+        options={{
+          tabBarLabel: 'Search',
+          tabBarColor: '#A62349',
+          tabBarIcon: (({ color }) => (
+            <Icon color={color} size={25} name="search-outline" />
           ))
         }}
       />

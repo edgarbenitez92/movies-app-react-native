@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import { Movie } from '../interfaces/movies.interface';
 import { moviePosterStyles } from '../styles/MoviePosterStyles';
 
@@ -18,7 +18,7 @@ export const MoviePoster = ({ movie, height = 420, width = 300 }: Props) => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('DetailScreen', movie)}
+      onPress={() => navigation.navigate('MovieDetailScreen', movie)}
       activeOpacity={0.95}
       style={{ width, height, ...moviePosterStyles.card }}>
       <View style={moviePosterStyles.imageContainer}>

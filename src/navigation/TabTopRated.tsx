@@ -1,9 +1,11 @@
 
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { TopRatedScreen } from "../screens/TopRatedScreen";
-import { DetailScreen } from "../screens/DetailScreen";
+import { TopRatedMoviesScreen } from "../screens/TopRatedMoviesScreen";
+import { MovieDetailScreen } from "../screens/MovieDetailScreen";
 import { TopRatedSelectionScreen } from "../screens/TopRatedSelectionScreen";
+import { TopRatedTvShowsScreen } from "../screens/TopRatedTvShowsScreen";
+import { TvShowDetailScreen } from '../screens/TvShowDetailScreen';
 
 const Tabs = createStackNavigator();
 
@@ -17,10 +19,11 @@ export const TabsTopRated = () => {
         }
       }}
     >
-
       <Tabs.Screen name="TopRatedSelectionScreen" component={TopRatedSelectionScreen} />
-      <Tabs.Screen name="TopRatedScreen" component={TopRatedScreen} />
-      <Tabs.Screen name="DetailScreen" component={DetailScreen} />
+      <Tabs.Screen name="TopRatedMoviesScreen" component={TopRatedMoviesScreen} />
+      <Tabs.Screen name="TopRatedTvShowsScreen" component={TopRatedTvShowsScreen} />
+      <Tabs.Screen name="MovieDetailScreen" component={MovieDetailScreen} />
+      <Tabs.Screen name="TvShowDetailScreen" component={TvShowDetailScreen} />
     </Tabs.Navigator>
   );
 }

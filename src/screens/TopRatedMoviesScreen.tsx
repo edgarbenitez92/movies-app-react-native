@@ -2,9 +2,9 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import { Spinner } from '../components/Spinner';
 import { useTopRatedMovie } from '../hooks/useTopRatedMovie';
-import { VerticalTRSlider } from '../components/VerticalTRSlider';
+import { VerticalMovieSlider } from '../components/VerticalMovieSlider';
 
-export const TopRatedScreen = () => {
+export const TopRatedMoviesScreen = () => {
 
   const { topRated, isLoading } = useTopRatedMovie();
 
@@ -20,7 +20,7 @@ export const TopRatedScreen = () => {
       <FlatList
         data={topRated}
         renderItem={({ item, index }) => (
-          <VerticalTRSlider movie={item} position={index} />
+          <VerticalMovieSlider movie={item} position={index} />
         )}
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}

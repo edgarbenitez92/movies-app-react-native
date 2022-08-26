@@ -5,14 +5,14 @@ import { Spinner } from '../components/Spinner';
 
 import { homeStyles } from '../styles/HomeStyles';
 import { GradientBackground } from '../components/GradientBackground';
-import { useTv } from '../hooks/useTv';
+import { useTvShows } from '../hooks/useTvShows';
 import { MainCarouselTv } from '../components/MainCarouselTv';
 import { HorizontalSliderTv } from '../components/HorizontalSliderTv';
 
 
 export const TvShowsScreen = () => {
 
-  const { airingToday, popular, onTheAir, isLoading } = useTv();
+  const { airingToday, popular, onTheAir, isLoading } = useTvShows();
 
   if (isLoading) return <Spinner />;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../screens/HomeScreen';
-import { DetailScreen } from '../screens/DetailScreen';
+import { MovieDetailScreen } from '../screens/MovieDetailScreen';
 import { RootStackParams } from '../types/rootStackParams.type';
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -18,7 +18,7 @@ export const StackNavigation = () => {
       }}
     >
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+      <Stack.Screen name="MovieDetailScreen" component={MovieDetailScreen} />
     </Stack.Navigator>
   );
 }

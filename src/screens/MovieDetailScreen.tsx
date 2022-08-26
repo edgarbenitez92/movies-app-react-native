@@ -11,9 +11,9 @@ import { detailStyles } from '../styles/DetailStyles';
 import { RootStackParams } from '../types/rootStackParams.type';
 import { Spinner } from '../components/Spinner';
 
-interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { };
+interface Props extends StackScreenProps<RootStackParams, 'MovieDetailScreen'> { };
 
-export const DetailScreen = ({ route }: Props) => {
+export const MovieDetailScreen = ({ route }: Props) => {
 
   // const movie = route.params as Movie;
   const movie = route.params;

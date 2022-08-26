@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { ImageBackground, Text, View, TouchableOpacity } from 'react-native';
 import { topRatedSelectionStyles } from '../styles/TopRatedSelectionStyles';
 
@@ -17,7 +17,7 @@ export const TopRatedSelectionScreen = () => {
       <View style={topRatedSelectionStyles.selectionContainer}>
         <TouchableOpacity
           activeOpacity={0.9}
-          onPress={() => navigate('TopRatedScreen')}
+          onPress={() => navigate('TopRatedMoviesScreen')}
           style={topRatedSelectionStyles.topRatedButton}
         >
           <Text style={topRatedSelectionStyles.topRatedButtonTitle}>
@@ -27,7 +27,7 @@ export const TopRatedSelectionScreen = () => {
 
         <TouchableOpacity
           activeOpacity={0.9}
-          onPress={() => console.log('hello')}
+          onPress={() => navigate('TopRatedTvShowsScreen')}
           style={topRatedSelectionStyles.topRatedButton}
         >
           <Text style={topRatedSelectionStyles.topRatedButtonTitle}>

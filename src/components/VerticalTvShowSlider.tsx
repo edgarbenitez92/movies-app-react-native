@@ -9,6 +9,7 @@ import { TvShowPoster } from './TvShowPoster';
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
+import { useGenres } from '../hooks/useGenres';
 
 interface Props {
   tvShow: TvShow;
@@ -18,8 +19,8 @@ interface Props {
 export const VerticalTvShowSlider = ({ tvShow, position }: Props) => {
 
   const { navigate } = useNavigation<any>();
-  // const isMovieAvailable: boolean = tvShow ? true : false;
-  // const { genres } = useGenresMovie(movie, isMovieAvailable);
+  const isTvShowAvailable: boolean = tvShow ? true : false;
+  const { genres } = useGenres(tvShow.genre_ids, isTvShowAvailable, 'tv');
 
   return (
     <TouchableOpacity
@@ -60,9 +61,9 @@ export const VerticalTvShowSlider = ({ tvShow, position }: Props) => {
           </Text>
 
           {/* Genres */}
-          {/* <Text style={verticalSliderStyles.movieDetails}>
+          <Text style={verticalSliderStyles.movieDetails}>
             Genre: {genres?.map(gene => gene.name).join(', ')}
-          </Text> */}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { MoviePoster } from './MoviePoster';
-import { useGenresMovie } from '../hooks/useGenresMovie';
+import { useGenres } from '../hooks/useGenres';
 
 import { verticalSliderStyles } from '../styles/VerticalTRSliderStyles';
 import { Movie } from '../interfaces/movies.interface';
@@ -21,7 +21,7 @@ export const VerticalMovieSlider = ({ movie, position }: Props) => {
 
   const { navigate } = useNavigation<any>();
   const isMovieAvailable: boolean = movie ? true : false;
-  const { genres } = useGenresMovie(movie, isMovieAvailable);
+  const { genres } = useGenres(movie.genre_ids, isMovieAvailable, 'movie');
 
   return (
     <TouchableOpacity

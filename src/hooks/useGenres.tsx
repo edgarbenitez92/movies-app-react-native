@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import genreDB from "../api/genreDB";
 import { Genre } from "../interfaces/movie.interface";
-import { Movie } from "../interfaces/movies.interface";
 
-export const useGenresMovie = (movie: Movie, isMovieAvailable: boolean) => {
+export const useGenres = (genresArr: number[], isAvailable: boolean, typeRequest: string) => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [genres, setGenres] = useState<Genre[]>();
 
-  const getGenresMovies = async (movie: Movie) => {
-    const { data } = await genreDB.get<any>('/movie/list');
+  const getGenresMovies = async () => {
+    const { data } = await genreDB.get<any>(`/${typeRequest}/list`);
 
-    const genresMapped = movie.genre_ids.map(id => {
+    const genresMapped = genresArr.map(id => {
       return data.genres.find((genre: Genre) => genre.id == id);
     });
 
@@ -20,8 +19,8 @@ export const useGenresMovie = (movie: Movie, isMovieAvailable: boolean) => {
   }
 
   useEffect(() => {
-    if (isMovieAvailable) getGenresMovies(movie);
-  }, [movie]);
+    if (isAvailable) getGenresMovies();
+  }, [genresArr]);
 
   return { genres, isLoading }
 }

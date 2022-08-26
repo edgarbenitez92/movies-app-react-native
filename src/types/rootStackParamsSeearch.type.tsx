@@ -1,4 +1,6 @@
 
 export type RootStackParamsSearch = {
-  SearchScreen: undefined;
+  SearchSelectionScreen: undefined;
+  SearchMoviesScreen: undefined;
+  SearchTvShowScreen: undefined;
 }

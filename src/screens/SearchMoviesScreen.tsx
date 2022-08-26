@@ -7,7 +7,7 @@ import searchDB from '../api/searchDB';
 import { searchScreenStyles } from '../styles/SearchScreenStyles';
 import { MovieCardSearch } from '../components/MovieCardSearch';
 
-export const SearchScreen = () => {
+export const SearchMoviesScreen = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isFetching, setIsFetching] = useState(false);

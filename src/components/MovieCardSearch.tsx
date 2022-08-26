@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, Image, StyleSheet, View } from 'react-native';
 import { Movie } from '../interfaces/movies.interface';
+import { FadeInImage } from './FadeInImage';
 
 interface Props {
   moviesFiltered: Movie[];
@@ -16,13 +17,21 @@ export const MovieCardSearch = ({ moviesFiltered }: Props) => {
 
       renderItem={(({ item }) => (
         <View style={styles.imageContainer}>
-          <Image
-            source={
-              (item.poster_path)
-                ? { uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }
-                : require('../assets/images/no-movie.jpg')}
-            style={styles.image}
-          />
+          {
+            (item.poster_path)
+              ? (
+                <FadeInImage
+                  uri={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                  style={styles.image}
+                />
+              )
+              : (
+                <Image
+                  source={require('../assets/images/no-movie.jpg')}
+                  style={styles.image}
+                />
+              )
+          }
         </View>
       ))}
     />

@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import searchDB from '../api/searchDB';
 import { searchScreenStyles } from '../styles/SearchScreenStyles';
 import { MovieCardSearch } from '../components/MovieCardSearch';
-import { NoResultsSearch } from '../components/NoResultsSearch';
 
 export const SearchScreen = () => {
 

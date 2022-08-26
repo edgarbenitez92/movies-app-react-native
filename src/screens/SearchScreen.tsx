@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { FlatList, Image, Keyboard, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { Movie, MovieDB } from '../interfaces/movies.interface';
 import { Spinner } from '../components/Spinner';
 import Icon from 'react-native-vector-icons/Ionicons';
 import searchDB from '../api/searchDB';
 import { searchScreenStyles } from '../styles/SearchScreenStyles';
+import { MovieCardSearch } from '../components/MovieCardSearch';
+import { NoResultsSearch } from '../components/NoResultsSearch';
 
 export const SearchScreen = () => {
 
@@ -14,11 +16,9 @@ export const SearchScreen = () => {
 
   const findMoviesFiltered = async (value: string) => {
     if (!value || value === '') return;
-    if (value == searchTerm) return;
 
     setIsFetching(true);
     const { data } = await searchDB.get<MovieDB>('/movie', { params: { query: value } });
-
     setMoviesFiltered(data ? data.results : []);
     setIsFetching(false);
   }
@@ -57,39 +57,11 @@ export const SearchScreen = () => {
           </View>
 
           {
-            isFetching
-              ? (<Spinner />)
-              : (
-                <FlatList
-                  data={moviesFiltered}
-                  keyExtractor={(movie) => movie.id.toString()}
-                  showsVerticalScrollIndicator={false}
-                  numColumns={2}
-
-                  renderItem={(({ item }) => (
-                    <View style={{
-                      marginVertical: 5,
-                      flex: 1,
-                      justifyContent: 'space-between',
-                      alignItems: 'center'
-                    }}>
-                      <Image
-                        source={
-                          (item.poster_path)
-                            ? { uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }
-                            : require('../assets/images/no-movie.jpg'
-                            )}
-                        style={{
-                          width: 180,
-                          height: 250,
-                          borderRadius: 10
-                        }}
-                      />
-                    </View>
-                  ))}
-                />
-              )
+            moviesFiltered.length
+              ? <MovieCardSearch moviesFiltered={moviesFiltered} />
+              : <NoResultsSearch />
           }
+
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

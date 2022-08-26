@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const similarMovieCardStyle = StyleSheet.create({
+export const similarCardStyle = StyleSheet.create({
   cardContainer: {
     flexDirection: 'column',
     alignItems: 'center',

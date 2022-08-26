@@ -14,7 +14,7 @@ export interface TvShowFullDetails {
   last_air_date: string;
   last_episode_to_air: LastEpisodeToAir;
   name: string;
-  next_episode_to_air: string;
+  next_episode_to_air: LastEpisodeToAir;
   networks: Network[];
   number_of_episodes: number;
   number_of_seasons: number;

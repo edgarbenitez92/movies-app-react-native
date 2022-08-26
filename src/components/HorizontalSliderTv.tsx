@@ -1,8 +1,7 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { horizontalSliderStyles } from '../styles/HorizontalSliderStyles';
-import { MoviePoster } from './MoviePoster';
-import { TvShow } from '../interfaces/tvShow.interface';
+import { TvShow } from '../interfaces/tvShows.interface';
 import { TvShowPoster } from './TvShowPoster';
 
 interface Props {

@@ -1,10 +1,10 @@
 import React from 'react';
-import { StackNavigation } from './StackNavigation';
-import { TabsTopRated } from './TabTopRated';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { TabMovie } from './TabMovie';
+import { TabTopRated } from './TabTopRated';
 import { TabsTvShow } from './TabTvShow';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Platform } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -12,7 +12,7 @@ export const TabsNavigation = () => {
 
   return (
     <Tab.Navigator
-      initialRouteName='StackNavigation'
+      initialRouteName='TabMovie'
       activeColor="#f0edf6"
       keyboardHidesNavigationBar={true}
       inactiveColor="#000000"
@@ -24,25 +24,13 @@ export const TabsNavigation = () => {
       }}
     >
       <Tab.Screen
-        name="StackNavigation"
-        component={StackNavigation}
+        name="TabMovie"
+        component={TabMovie}
         options={{
           tabBarLabel: 'Cine',
           tabBarColor: '#EC9B45',
           tabBarIcon: (({ color }) => (
             <Icon color={color} size={25} name="videocam-outline" />
-          ))
-        }}
-      />
-
-      <Tab.Screen
-        name="TabsTopRated"
-        component={TabsTopRated}
-        options={{
-          tabBarLabel: 'Top Rated',
-          tabBarColor: '#135990',
-          tabBarIcon: (({ color }) => (
-            <Icon color={color} size={25} name="star-half-outline" />
           ))
         }}
       />
@@ -55,6 +43,18 @@ export const TabsNavigation = () => {
           tabBarColor: '#58149C',
           tabBarIcon: (({ color }) => (
             <Icon color={color} size={25} name="desktop-outline" />
+          ))
+        }}
+      />
+
+      <Tab.Screen
+        name="TabTopRated"
+        component={TabTopRated}
+        options={{
+          tabBarLabel: 'Top Rated',
+          tabBarColor: '#135990',
+          tabBarIcon: (({ color }) => (
+            <Icon color={color} size={25} name="star-half-outline" />
           ))
         }}
       />

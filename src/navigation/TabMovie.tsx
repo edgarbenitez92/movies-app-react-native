@@ -6,7 +6,7 @@ import { RootStackParams } from '../types/rootStackParams.type';
 
 const Stack = createStackNavigator<RootStackParams>();
 
-export const StackNavigation = () => {
+export const TabMovie = () => {
 
   return (
     <Stack.Navigator

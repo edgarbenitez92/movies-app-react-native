@@ -122,7 +122,7 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
         </View>
 
         {
-          in_production &&
+          (next_episode_to_air) &&
           (
             <View style={{ flexDirection: 'row' }}>
               <Text style={tvShowDetailsStyles.productionDetailTitle}>
@@ -150,7 +150,7 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
         }
 
         {
-          in_production &&
+          (next_episode_to_air) &&
           (
             <View style={{ flexDirection: 'row' }}>
               <Text style={tvShowDetailsStyles.productionDetailTitle}>

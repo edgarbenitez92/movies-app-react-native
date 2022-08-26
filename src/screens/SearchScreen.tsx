@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { Movie, MovieDB } from '../interfaces/movies.interface';
 import { Spinner } from '../components/Spinner';
 import Icon from 'react-native-vector-icons/Ionicons';

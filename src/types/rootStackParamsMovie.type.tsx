@@ -1,6 +1,6 @@
 import { Movie } from "../interfaces/movies.interface";
 
-export type RootStackParams = {
+export type RootStackParamsMovie = {
   HomeScreen: undefined;
   MovieDetailScreen: Movie;
 }

@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 import Carousel from 'react-native-reanimated-carousel';
 
-import { MoviePoster } from './MoviePoster';
-
 import { carouselStyles } from '../styles/CarouselStyles';
 import { getImageColors } from '../helpers/getColors';
 import { GradientContext } from '../context/GradientContext';
 import { useEffect } from 'react';
-import { TvShow } from '../interfaces/tvShow.interface';
+import { TvShow } from '../interfaces/tvShows.interface';
 import { TvShowPoster } from './TvShowPoster';
 
 interface Props {

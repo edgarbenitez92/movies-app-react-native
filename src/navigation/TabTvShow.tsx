@@ -2,12 +2,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { TvShowsScreen } from "../screens/TvShowsScreen";
+import { TvShowDetailScreen } from '../screens/TvShowDetailScreen';
+import { RootStackTvShowParams } from '../types/rootStackParamsTvShow.type';
 
-const Tabs = createStackNavigator();
+const Stack = createStackNavigator<RootStackTvShowParams>();
 
 export const TabsTvShow = () => {
   return (
-    <Tabs.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerShown: false,
         cardStyle: {
@@ -15,7 +17,8 @@ export const TabsTvShow = () => {
         }
       }}
     >
-      <Tabs.Screen name="TvShowsScreen" component={TvShowsScreen} />
-    </Tabs.Navigator>
+      <Stack.Screen name="TvShowsScreen" component={TvShowsScreen} />
+      <Stack.Screen name="TvShowDetailScreen" component={TvShowDetailScreen} />
+    </Stack.Navigator>
   );
 }

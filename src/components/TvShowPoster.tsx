@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Image, TouchableOpacity, View } from 'react-native';
 import { TvShow } from '../interfaces/tvShows.interface';
 import { moviePosterStyles } from '../styles/MoviePosterStyles';

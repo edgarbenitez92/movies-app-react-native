@@ -6,12 +6,13 @@ import { MovieDetailScreen } from "../screens/MovieDetailScreen";
 import { TopRatedSelectionScreen } from "../screens/TopRatedSelectionScreen";
 import { TopRatedTvShowsScreen } from "../screens/TopRatedTvShowsScreen";
 import { TvShowDetailScreen } from '../screens/TvShowDetailScreen';
+import { RootStackParamsTopRated } from "../types/rootStackParamsTopRated.type";
 
-const Tabs = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamsTopRated>();
 
-export const TabsTopRated = () => {
+export const TabTopRated = () => {
   return (
-    <Tabs.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerShown: false,
         cardStyle: {
@@ -19,11 +20,11 @@ export const TabsTopRated = () => {
         }
       }}
     >
-      <Tabs.Screen name="TopRatedSelectionScreen" component={TopRatedSelectionScreen} />
-      <Tabs.Screen name="TopRatedMoviesScreen" component={TopRatedMoviesScreen} />
-      <Tabs.Screen name="TopRatedTvShowsScreen" component={TopRatedTvShowsScreen} />
-      <Tabs.Screen name="MovieDetailScreen" component={MovieDetailScreen} />
-      <Tabs.Screen name="TvShowDetailScreen" component={TvShowDetailScreen} />
-    </Tabs.Navigator>
+      <Stack.Screen name="TopRatedSelectionScreen" component={TopRatedSelectionScreen} />
+      <Stack.Screen name="TopRatedMoviesScreen" component={TopRatedMoviesScreen} />
+      <Stack.Screen name="TopRatedTvShowsScreen" component={TopRatedTvShowsScreen} />
+      <Stack.Screen name="MovieDetailScreen" component={MovieDetailScreen} />
+      <Stack.Screen name="TvShowDetailScreen" component={TvShowDetailScreen} />
+    </Stack.Navigator>
   );
 }

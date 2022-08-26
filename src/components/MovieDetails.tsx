@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions, FlatList, Text, View } from 'react-native';
 
 import { CastDetails } from './CastDetails';
-import { SimilarMovieCard } from './SimilarMovieCard';
+import { SimilarCard } from './SimilarCard';
 import { Spinner } from './Spinner';
 
 import { MovieFullDetail } from '../interfaces/movie.interface';
@@ -122,7 +122,7 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
           showsHorizontalScrollIndicator={false}
           horizontal={true}
           renderItem={(({ item }) => (
-            <SimilarMovieCard movie={item} />
+            <SimilarCard posterPath={item.poster_path} />
           ))}
         />
       </View>

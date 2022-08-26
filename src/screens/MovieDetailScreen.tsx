@@ -1,17 +1,15 @@
 import React from 'react';
-import { ActivityIndicator, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/Octicons'
 
 import { MovieDetails } from '../components/MovieDetails';
-
 import { useMovieDetails } from '../hooks/useMovieDetails';
-
-import { detailStyles } from '../styles/DetailStyles';
-import { RootStackParams } from '../types/rootStackParams.type';
 import { Spinner } from '../components/Spinner';
 
-interface Props extends StackScreenProps<RootStackParams, 'MovieDetailScreen'> { };
+import { detailStyles } from '../styles/DetailStyles';
+import { RootStackParamsMovie } from '../types/rootStackParamsMovie.type';
+
+interface Props extends StackScreenProps<RootStackParamsMovie, 'MovieDetailScreen'> { };
 
 export const MovieDetailScreen = ({ route }: Props) => {
 

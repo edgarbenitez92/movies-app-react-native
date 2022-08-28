@@ -23,7 +23,11 @@ export const MoviePoster = ({ movie, height = 420, width = 300 }: Props) => {
       style={{ width, height, ...moviePosterStyles.card }}>
       <View style={moviePosterStyles.imageContainer}>
         <Image
-          source={{ uri }}
+          source={
+            (poster_path)
+              ? { uri }
+              : require('../assets/images/no-movie.jpg')
+          }
           style={moviePosterStyles.image}
         />
       </View>

@@ -44,7 +44,7 @@ export const useMovieDetails = (movieId: number) => {
 
   useEffect(() => {
     getMovieDetails();
-  }, [movieId]);
+  }, []);
 
   return { isLoading, cast, movieFullDetails, similarMovies };
 }

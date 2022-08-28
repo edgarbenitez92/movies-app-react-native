@@ -43,5 +43,9 @@ export const searchScreenStyles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: 18
+  },
+  flatListContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });

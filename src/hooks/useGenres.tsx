@@ -20,7 +20,7 @@ export const useGenres = (genresArr: number[], isAvailable: boolean, typeRequest
 
   useEffect(() => {
     if (isAvailable) getGenresMovies();
-  }, [genresArr]);
+  }, []);
 
   return { genres, isLoading }
 }

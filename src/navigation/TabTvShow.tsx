@@ -10,6 +10,7 @@ const Stack = createStackNavigator<RootStackTvShowParams>();
 export const TabsTvShow = () => {
   return (
     <Stack.Navigator
+      initialRouteName="TvShowsScreen"
       screenOptions={{
         headerShown: false,
         cardStyle: {

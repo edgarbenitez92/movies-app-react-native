@@ -10,6 +10,7 @@ export const TabMovie = () => {
 
   return (
     <Stack.Navigator
+      initialRouteName='HomeScreen'
       screenOptions={{
         headerShown: false,
         cardStyle: {

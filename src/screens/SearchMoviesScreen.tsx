@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Alert, Keyboard, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, FlatList, Keyboard, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { Movie, MovieDB } from '../interfaces/movies.interface';
 import { Spinner } from '../components/Spinner';
 import Icon from 'react-native-vector-icons/Ionicons';
 import searchDB from '../api/searchDB';
 import { searchScreenStyles } from '../styles/SearchScreenStyles';
-import { MovieCardSearch } from '../components/MovieCardSearch';
+import { MoviePoster } from '../components/MoviePoster';
 
 export const SearchMoviesScreen = () => {
 
@@ -62,8 +62,20 @@ export const SearchMoviesScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <MovieCardSearch moviesFiltered={moviesFiltered} />
-
+          <View style={searchScreenStyles.flatListContainer}>
+            <FlatList
+              data={moviesFiltered}
+              keyExtractor={(movie) => movie.id.toString()}
+              showsVerticalScrollIndicator={false}
+              numColumns={2}
+              style={{
+                marginVertical: 5,
+              }}
+              renderItem={(({ item }) => (
+                <MoviePoster movie={item} width={180} height={250} />
+              ))}
+            />
+          </View>
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

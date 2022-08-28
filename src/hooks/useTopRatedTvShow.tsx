@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import tvShowDB from "../api/tvShowDB";
-import { TvShow, TvShowDB } from '../interfaces/tvShow.interface';
+import { TvShow, TvShowDB } from '../interfaces/tvShows.interface';
 
 export const useTopRatedTvShow = () => {
 

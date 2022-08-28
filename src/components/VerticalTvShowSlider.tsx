@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useGenres } from '../hooks/useGenres';
 
 import { verticalSliderStyles } from '../styles/VerticalTRSliderStyles';
 import { TvShow } from '../interfaces/tvShows.interface';
@@ -9,7 +10,6 @@ import { TvShowPoster } from './TvShowPoster';
 import Icon from 'react-native-vector-icons/Octicons';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import { useGenres } from '../hooks/useGenres';
 
 interface Props {
   tvShow: TvShow;

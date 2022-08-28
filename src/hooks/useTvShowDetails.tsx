@@ -44,7 +44,7 @@ export const useTvShowDetails = (tvShowId: number) => {
 
   useEffect(() => {
     getTvShowDetails();
-  }, [tvShowId]);
+  }, []);
 
   return { isLoading, cast, tvShowDetails, similarTvShows };
 }

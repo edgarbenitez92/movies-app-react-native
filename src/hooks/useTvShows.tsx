@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import tvShowDB from "../api/tvShowDB";
 
 import { TvShowsState } from "../interfaces/flatListTvShows.interface";
-import { TvShowDB } from "../interfaces/tvShow.interface";
+import { TvShowDB } from "../interfaces/tvShows.interface";
 
 export const useTvShows = () => {
 

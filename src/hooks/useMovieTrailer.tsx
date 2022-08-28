@@ -25,7 +25,7 @@ export const useMovieTrailer = (movieId: number) => {
 
   useEffect(() => {
     getTrailerByIdMovie();
-  }, [movieId]);
+  }, []);
 
   return { trailerState, trailersYoutubeList, isLoading };
 }

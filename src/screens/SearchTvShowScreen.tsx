@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Alert, Keyboard, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, FlatList, Keyboard, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { Spinner } from '../components/Spinner';
 import Icon from 'react-native-vector-icons/Ionicons';
 import searchDB from '../api/searchDB';
 import { searchScreenStyles } from '../styles/SearchScreenStyles';
 import { TvShow, TvShowDB } from '../interfaces/tvShows.interface';
-import { TvShowCardSearch } from '../components/TvShowCardSearch';
+import { TvShowPoster } from '../components/TvShowPoster';
 
 export const SearchTvShowScreen = () => {
 
@@ -62,7 +62,18 @@ export const SearchTvShowScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <TvShowCardSearch tvShowsFiltered={tvShowsFiltered} />
+          <View style={searchScreenStyles.flatListContainer}>
+            <FlatList
+              data={tvShowsFiltered}
+              keyExtractor={(tvShow) => tvShow.id.toString()}
+              showsVerticalScrollIndicator={false}
+              numColumns={2}
+
+              renderItem={(({ item }) => (
+                <TvShowPoster tvShow={item} width={180} height={250} />
+              ))}
+            />
+          </View>
 
         </View>
       </TouchableWithoutFeedback>

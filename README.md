@@ -17,7 +17,7 @@ A mobile app where you can find Movies and Tv Series. Built in React Native as a
 ## Development environment
 
 ### Important!!!
-This application has no been testing on iOS platform!!!
+This application has not been tested on iOS platform!!!
 
 ### Minimum requirements
 

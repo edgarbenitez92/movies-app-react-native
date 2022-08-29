@@ -1,13 +1,14 @@
 import React from 'react';
 import { TabMovie } from './TabMovie';
 import { TabTopRated } from './TabTopRated';
-import { TabsTvShow } from './TabTvShow';
+import { TabTvShow } from './TabTvShow';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TabSearch } from './TabSearch';
+import { RootTabNavigator } from '../types/rootTabNavigator.type';
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator<RootTabNavigator>();
 
 export const TabsNavigation = () => {
 
@@ -37,8 +38,8 @@ export const TabsNavigation = () => {
       />
 
       <Tab.Screen
-        name="TabsTvShow"
-        component={TabsTvShow}
+        name="TabTvShow"
+        component={TabTvShow}
         options={{
           tabBarLabel: 'TV Shows',
           tabBarColor: '#58149C',

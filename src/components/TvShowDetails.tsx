@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, FlatList, Text, View } from 'react-native';
+import { Dimensions, FlatList, Image, Text, View } from 'react-native';
 
 import { CastDetails } from './CastDetails';
 import { SimilarCard } from './SimilarCard';
@@ -16,6 +16,8 @@ import { TvShow } from '../interfaces/tvShows.interface';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 import YoutubePlayer from 'react-native-youtube-iframe';
+import { similarCardStyle } from '../styles/SimilarCardStyles';
+import { PrevSeasonsCard } from './PrevSeasonsCard';
 
 const screenDimensions = Dimensions.get('window').height;
 
@@ -37,7 +39,8 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
     last_episode_to_air,
     next_episode_to_air,
     number_of_seasons,
-    number_of_episodes
+    number_of_episodes,
+    seasons
   } = tvShowFull;
 
   const { trailerState, isLoading, trailersYoutubeList } = useTvShowTrailer(tvShowFull.id);
@@ -221,7 +224,32 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
         )
       }
 
-      {/* Similar Movies */}
+      {/* Others seasons */}
+      {
+        (seasons.length > 0) &&
+        (
+          <View style={tvShowDetailsStyles.similarMoviesContainer}>
+            <Text style={{
+              ...tvShowDetailsStyles.titlesDetails,
+              marginLeft: 15
+            }}>
+              Seasons
+            </Text>
+
+            <FlatList
+              data={seasons}
+              keyExtractor={(season) => season.id.toString()}
+              showsHorizontalScrollIndicator={false}
+              horizontal={true}
+              renderItem={(({ item, index }) => (
+                <PrevSeasonsCard poster_path={item.poster_path} season_name={item.name} season_number={index} />
+              ))}
+            />
+          </View>
+        )
+      }
+
+      {/* Similar Tv Shows */}
       <View style={tvShowDetailsStyles.similarMoviesContainer}>
         <Text style={{
           ...tvShowDetailsStyles.titlesDetails,

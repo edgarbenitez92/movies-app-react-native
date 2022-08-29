@@ -72,6 +72,14 @@ export const SearchTvShowScreen = () => {
               renderItem={(({ item }) => (
                 <TvShowPoster tvShow={item} width={180} height={250} />
               ))}
+
+
+              // Footer
+              ListFooterComponent={(
+                <View></View>
+              )}
+
+              ListFooterComponentStyle={searchScreenStyles.footerContainer}
             />
           </View>
 

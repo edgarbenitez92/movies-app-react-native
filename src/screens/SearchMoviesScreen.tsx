@@ -74,6 +74,13 @@ export const SearchMoviesScreen = () => {
               renderItem={(({ item }) => (
                 <MoviePoster movie={item} width={180} height={250} />
               ))}
+
+              // Footer
+              ListFooterComponent={(
+                <View></View>
+              )}
+
+              ListFooterComponentStyle={searchScreenStyles.footerContainer}
             />
           </View>
         </View>

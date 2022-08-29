@@ -1,8 +1,8 @@
-import { Movie } from "./movies.interfaces";
+import { Movie } from "./movies.interface";
 
 export interface MoviesState {
   nowPlaying: Movie[];
   popular: Movie[];
-  topRated: Movie[];
+  // topRated: Movie[];
   upcoming: Movie[];
 }

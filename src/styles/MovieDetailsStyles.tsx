@@ -1,9 +1,8 @@
 import { StyleSheet } from "react-native";
 
-
 export const movieDetailsStyles = StyleSheet.create({
   detailsContainer: {
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   rateContainer: {
     flexDirection: 'row'
@@ -15,21 +14,23 @@ export const movieDetailsStyles = StyleSheet.create({
     fontSize: 23,
     marginTop: 10,
     fontWeight: 'bold',
-    marginBottom: 5
+    marginBottom: 5,
+    color: 'black'
   },
   historyDetail: {
-    fontSize: 16
+    fontSize: 16,
   },
   budgetDetail: {
     fontSize: 16
   },
   castingContainer: {
     marginTop: 10,
-    marginBottom: 100
+  },
+  similarMoviesContainer: {
+    marginBottom: 10
   },
   swiperContainer: {
     marginTop: 10,
     height: 70
   }
-
 });

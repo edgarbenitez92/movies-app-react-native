@@ -1,25 +1,25 @@
 import React from 'react';
-import { ActivityIndicator, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/Octicons'
 
 import { MovieDetails } from '../components/MovieDetails';
-
 import { useMovieDetails } from '../hooks/useMovieDetails';
-import { RootStackParams } from '../navigation/Navigation';
+import { Spinner } from '../components/Spinner';
 
 import { detailStyles } from '../styles/DetailStyles';
+import { RootStackParamsMovie } from '../types/rootStackParamsMovie.type';
 
-interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> { };
+interface Props extends StackScreenProps<RootStackParamsMovie, 'MovieDetailScreen'> { };
 
-export const DetailScreen = ({ route, navigation }: Props) => {
+export const MovieDetailScreen = ({ route }: Props) => {
 
   // const movie = route.params as Movie;
   const movie = route.params;
   const { poster_path, original_title, title, id } = movie;
   const uri = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  const { isLoading, movieFullDetails, cast, similarMovies } = useMovieDetails(id);
 
-  const { isLoading, movieFullDetails, cast } = useMovieDetails(id);
+  if (isLoading) return <Spinner />;
 
   return (
     <ScrollView>
@@ -37,23 +37,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
         <Text style={detailStyles.title}>{title}</Text>
       </View>
 
-      {
-        isLoading
-          ? <ActivityIndicator size={35} color='grey' style={{ marginTop: 20 }} />
-          : <MovieDetails movieFull={movieFullDetails!} cast={cast} />
-      }
-
-      {/* Close DetailScreen */}
-      <TouchableOpacity
-        style={detailStyles.returnButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Icon
-          name='chevron-left'
-          color='white'
-          size={40}
-        />
-      </TouchableOpacity>
+      <MovieDetails movieFull={movieFullDetails!} cast={cast} similarMovies={similarMovies!} />
     </ScrollView>
   )
 }

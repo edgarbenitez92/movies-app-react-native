@@ -2,14 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191717"
-    android:backgroundTint="#090808"
+    android:background="@color/primary_dark"
+    android:backgroundTint="@color/primary_dark"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollbarThumbHorizontal="@color/primary_dark"
+    android:scrollbarThumbVertical="@color/primary_dark">
 
     <FrameLayout
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:background="@mipmap/ic_launcher">
 

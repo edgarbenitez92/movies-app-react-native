@@ -1,19 +1,16 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../screens/HomeScreen';
-import { DetailScreen } from '../screens/DetailScreen';
-import { Movie } from '../interfaces/movies.interfaces';
+import { MovieDetailScreen } from '../screens/MovieDetailScreen';
+import { RootStackParamsMovie } from '../types/rootStackParamsMovie.type';
 
-export type RootStackParams = {
-  HomeScreen: undefined;
-  DetailScreen: Movie;
-}
+const Stack = createStackNavigator<RootStackParamsMovie>();
 
-const Stack = createStackNavigator<RootStackParams>();
+export const TabMovie = () => {
 
-export const Navigation = () => {
   return (
     <Stack.Navigator
+      initialRouteName='HomeScreen'
       screenOptions={{
         headerShown: false,
         cardStyle: {
@@ -22,7 +19,7 @@ export const Navigation = () => {
       }}
     >
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+      <Stack.Screen name="MovieDetailScreen" component={MovieDetailScreen} />
     </Stack.Navigator>
   );
 }

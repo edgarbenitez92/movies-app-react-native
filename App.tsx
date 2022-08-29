@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
-import { Navigation } from './src/navigation/Navigation';
+import { NavigationContainer } from '@react-navigation/native';
 import { GradientProvider } from './src/context/GradientContext';
+import { TabsNavigation } from './src/navigation/TabsNavigation';
 
 const AppState = ({ children }: any) => {
 
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <AppState>
-        <Navigation />
+        <TabsNavigation />
       </AppState>
     </NavigationContainer>
   )

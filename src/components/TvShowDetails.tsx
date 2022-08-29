@@ -236,7 +236,7 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
           showsHorizontalScrollIndicator={false}
           horizontal={true}
           renderItem={(({ item }) => (
-            <SimilarCard posterPath={item.poster_path} />
+            <SimilarCard card={item} typeCard='TvShow' />
           ))}
         />
       </View>

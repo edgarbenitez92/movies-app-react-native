@@ -136,7 +136,7 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
               showsHorizontalScrollIndicator={false}
               horizontal={true}
               renderItem={(({ item }) => (
-                <SimilarCard posterPath={item.poster_path} />
+                <SimilarCard card={item} typeCard='Movie' />
               ))}
             />
           </View>

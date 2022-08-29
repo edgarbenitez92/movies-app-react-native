@@ -1,4 +1,4 @@
-# Movies && TV Shows / Series
+# Movies&TV Shows / Series
 
 A mobile app where you can find Movies and Tv Series. Built in React Native as a learning project.
 
@@ -24,7 +24,8 @@ This application has no been testing on iOS platform!!!
 - [Nodejs (LTS)](https://nodejs.org/es/).
 - [React +v18.0.0](https://es.reactjs.org/).
 - [React Native +v0.69.1](https://reactnative.dev/).
-- [Android Studio](https://developer.android.com/studio)
+- [Android Studio](https://developer.android.com/studio).
+- Android version 9+.
 
 Run in the root of the project:
 

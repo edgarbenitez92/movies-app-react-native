@@ -17,7 +17,7 @@ export const SearchSelectionScreen = () => {
       <View style={topRatedSelectionStyles.selectionContainer}>
         <TouchableOpacity
           activeOpacity={0.9}
-          onPress={() => navigate('SearchScreen')}
+          onPress={() => navigate('SearchMoviesScreen')}
           style={topRatedSelectionStyles.topRatedButton}
         >
           <Text style={topRatedSelectionStyles.topRatedButtonTitle}>

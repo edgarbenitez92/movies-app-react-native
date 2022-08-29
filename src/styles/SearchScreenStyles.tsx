@@ -18,9 +18,7 @@ export const searchScreenStyles = StyleSheet.create({
     color: 'black'
   },
   footerContainer: {
-    marginBottom: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginBottom: 50,
   },
   textBackground: {
     backgroundColor: '#F3F1F3',

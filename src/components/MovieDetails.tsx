@@ -41,9 +41,14 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
           <Icon name='star' color='grey' size={16} />
           <Text style={movieDetailsStyles.rateDetails}>{vote_average}</Text>
 
-          <Text style={movieDetailsStyles.rateDetails}>
-            - {genres.map(gene => gene.name).join(', ')}
-          </Text>
+          {
+            (genres.length > 0) &&
+            (
+              <Text style={movieDetailsStyles.rateDetails}>
+                - {genres.map(gene => gene.name).join(', ')}
+              </Text>
+            )
+          }
         </View>
 
         {/* History */}
@@ -66,27 +71,32 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
       </View>
 
       {/* Casting */}
-      <View style={movieDetailsStyles.castingContainer}>
-        <Text style={{
-          ...movieDetailsStyles.titlesDetails,
-          marginLeft: 15
-        }}>
-          Actors
-        </Text>
+      {
+        (cast.length > 0) &&
+        (
+          <View style={movieDetailsStyles.castingContainer}>
+            <Text style={{
+              ...movieDetailsStyles.titlesDetails,
+              marginLeft: 15
+            }}>
+              Actors
+            </Text>
 
-        <FlatList
-          style={movieDetailsStyles.swiperContainer}
-          data={cast}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <CastDetails actor={item} />}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
+            <FlatList
+              style={movieDetailsStyles.swiperContainer}
+              data={cast}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => <CastDetails actor={item} />}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+        )
+      }
 
       {/* Trailers */}
       {
-        trailerState?.length &&
+        (trailerState!.length > 0) &&
         (
           <View style={movieDetailsStyles.similarMoviesContainer}>
             <Text style={{
@@ -101,6 +111,7 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
                 videoId={trailerYoutubeKey}
                 playList={trailersYoutubeList}
                 height={screenDimensions * 0.30}
+                webViewStyle={{ opacity: 0.99 }}
               />
             </View>
           </View>
@@ -108,24 +119,29 @@ export const MovieDetails = ({ movieFull, cast, similarMovies }: Props) => {
       }
 
       {/* Similar Movies */}
-      <View style={movieDetailsStyles.similarMoviesContainer}>
-        <Text style={{
-          ...movieDetailsStyles.titlesDetails,
-          marginLeft: 15
-        }}>
-          Similar Movies
-        </Text>
+      {
+        (similarMovies.length > 0) &&
+        (
+          <View style={movieDetailsStyles.similarMoviesContainer}>
+            <Text style={{
+              ...movieDetailsStyles.titlesDetails,
+              marginLeft: 15
+            }}>
+              Similar Movies
+            </Text>
 
-        <FlatList
-          data={similarMovies}
-          keyExtractor={(movie) => movie.id.toString()}
-          showsHorizontalScrollIndicator={false}
-          horizontal={true}
-          renderItem={(({ item }) => (
-            <SimilarCard posterPath={item.poster_path} />
-          ))}
-        />
-      </View>
+            <FlatList
+              data={similarMovies}
+              keyExtractor={(movie) => movie.id.toString()}
+              showsHorizontalScrollIndicator={false}
+              horizontal={true}
+              renderItem={(({ item }) => (
+                <SimilarCard posterPath={item.poster_path} />
+              ))}
+            />
+          </View>
+        )
+      }
     </>
   )
 }

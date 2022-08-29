@@ -6,7 +6,7 @@ import { Trailer, TrailerResponse } from '../interfaces/trailerMovie.interface';
 export const useMovieTrailer = (movieId: number) => {
 
   const [isLoading, setIsLoading] = useState(true);
-  const [trailerState, setTrailerState] = useState<Trailer[]>();
+  const [trailerState, setTrailerState] = useState<Trailer[]>([]);
   const [trailersYoutubeList, setTrailersYoutubeList] = useState<string[]>();
 
   const getTrailerByIdMovie = async () => {
@@ -19,7 +19,12 @@ export const useMovieTrailer = (movieId: number) => {
 
   const getYoutubeKeys = (movieTrailers: Trailer[]): string[] => {
     let keysArr: string[] = [];
-    if (movieTrailers.length) keysArr = movieTrailers.map(trailer => trailer.key);
+
+    if (movieTrailers.length) {
+      const youtubeVideosFiltered = movieTrailers.filter(trailer => trailer.site == 'YouTube');
+      keysArr = youtubeVideosFiltered.map(trailer => trailer.key);
+    }
+
     return keysArr;
   }
 

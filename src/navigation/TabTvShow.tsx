@@ -7,7 +7,7 @@ import { RootStackTvShowParams } from '../types/rootStackParamsTvShow.type';
 
 const Stack = createStackNavigator<RootStackTvShowParams>();
 
-export const TabsTvShow = () => {
+export const TabTvShow = () => {
   return (
     <Stack.Navigator
       initialRouteName="TvShowsScreen"

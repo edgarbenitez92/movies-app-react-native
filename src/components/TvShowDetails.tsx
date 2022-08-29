@@ -199,7 +199,7 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
 
       {/* Trailers */}
       {
-        trailerState?.length &&
+        (trailerState!.length > 0) &&
         (
           <View style={tvShowDetailsStyles.similarMoviesContainer}>
             <Text style={{
@@ -214,6 +214,7 @@ export const TvShowDetails = ({ tvShowFull, cast, similarTvShows }: Props) => {
                 videoId={trailerYoutubeKey}
                 playList={trailersYoutubeList}
                 height={screenDimensions * 0.30}
+                webViewStyle={{ opacity: 0.99 }}
               />
             </View>
           </View>

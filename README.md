@@ -52,3 +52,7 @@ $ npx run-android
 - [React Native Snap Carousel](https://github.com/meliorence/react-native-snap-carousel): Swiper/carousel component for React Native featuring previews, multiple layouts, parallax images, performant handling of huge numbers of items, and more.
 - [React Native Splash Screen](https://www.npmjs.com/package/react-native-splash-screen): A splash screen API for react-native which can programatically hide and show the splash screen.
 - [React Native Youtube iframe](https://www.npmjs.com/package/react-native-youtube-iframe): A wrapper of the Youtube IFrame player API build for react native.
+
+### API resource
+
+- [TMDB](https://www.themoviedb.org/): Millions of movies, TV shows and people to discover.
